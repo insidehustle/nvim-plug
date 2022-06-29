@@ -100,6 +100,7 @@ Plug 'simrat39/rust-tools.nvim'
 " editor enhancements surround setup for closing [{("' and more: https://github.com/tpope/vim-surround
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-unimpaired'
 
 " Git Handler
 "Plug 'tpope/vim-fugitive'
@@ -133,8 +134,8 @@ call plug#end()
 
 " KEEP IT SNEKKY SNEAKY
 " Sneak
-map f <Plug>Sneak_s
-map F <Plug>Sneak_S
+"map f <Plug>Sneak_s
+"map F <Plug>Sneak_S
 
 lua require('cfgx.hop')
 lua require('cfgx.treesitter')
