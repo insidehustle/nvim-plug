@@ -63,9 +63,17 @@ require('lspconfig')['rust_analyzer'].setup{
     flags = lsp_flags,
     -- Server-specific settings...
     settings = {
-      ["rust-analyzer"] = {}
+            ["rust-analyzer"] = {
+                -- enable clippy on save
+                checkOnSave = {
+                    command = "clippy"
+                },
+            }
     }
 }
+require('rust-tools').setup({})
+-- set inlay hints
+require('rust-tools.inlay_hints').set_inlay_hints()
 require'lspconfig'.sumneko_lua.setup {
   settings = {
     Lua = {

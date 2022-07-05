@@ -50,7 +50,6 @@ Plug 'vim-syntastic/syntastic'
 Plug 'preservim/nerdcommenter'
 
 " GUI enhancements
-Plug 'itchyny/lightline.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'andymass/vim-matchup'
 Plug 'airblade/vim-rooter'
@@ -71,7 +70,7 @@ Plug 'tamago324/nlsp-settings.nvim' " language server settings defined in json f
 Plug 'jose-elias-alvarez/null-ls.nvim' "for formatters and linters
 "" Plug 'filipdutescu/renamer.nvim'
 Plug 'simrat39/symbols-outline.nvim'
-"
+
 " Debugger
 Plug 'mfussenegger/nvim-dap'
 Plug 'leoluz/nvim-dap-go'
@@ -87,6 +86,11 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'phaazon/hop.nvim'
 Plug 'justinmk/vim-sneak'
 
+" Line 
+Plug 'nvim-lualine/lualine.nvim'
+" Plug 'itchyny/lightline.vim'
+" perhaps a new statusline: https://github.com/glepnir/galaxyline.nvim
+" Plug 'glepnir/galaxyline.nvim' , { 'branch': 'main' }
 
 " Terminal 
 Plug 'akinsho/toggleterm.nvim', {'tag':  'v1.*'}
@@ -107,6 +111,8 @@ Plug 'tpope/vim-unimpaired'
 
 " Colorschemes
 Plug 'gruvbox-community/gruvbox'
+Plug 'rebelot/kanagawa.nvim'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
 " Unsure 
 " vim-caser grants bindings that allow changing the casing of words. May be
@@ -115,11 +121,9 @@ Plug 'gruvbox-community/gruvbox'
 " Plug 'arthurxavierx/vim-caser'
 " tabularize: http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
 Plug 'godlygeek/tabular'
-" perhaps a new statusline: https://github.com/glepnir/galaxyline.nvim
-" Plug 'glepnir/galaxyline.nvim' , { 'branch': 'main' }
 
 " If you want to display icons, then use one of these plugins:
-" Plug 'kyazdani42/nvim-web-devicons' " lua
+ Plug 'kyazdani42/nvim-web-devicons' " lua
 
 " Set root of folder when opening new file 
 Plug 'airblade/vim-rooter'
@@ -146,3 +150,4 @@ lua require("cfgx.keymappings")
 lua require("cfgx.dab")
 lua require('cfgx.telescope')
 lua require('cfgx.toggleterm')
+lua require('cfgx.lualine')
