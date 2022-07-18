@@ -1,3 +1,4 @@
+--
 ---- Keymappings
 --Remap space as leader key
 local opts = {noremap = true}
@@ -53,4 +54,16 @@ keymap("v", "<A-DOWN>", ":m '<-2<CR>gv=gv", opts)
 -- this is smart:
 keymap("i", "<C-c>", "<ESC>", opts)
 
+-- saving 
+keymap("n", '<C-e>', ":Explore<CR>", opts)
 
+-- explorer
+keymap('n', '<C-s>', ':w<CR>', {silent=true})
+keymap('i', '<C-s>', '<Esc><C-s>a', {silent=true})
+
+-- moving selected text up and down
+keymap("v", "J", ":m '>+1<CR>gv=gv", opts)
+keymap("v", "K", ":m '<-2<CR>gv=gv", opts)
+-- moving text to the left 
+--keymap("v", "<Shift->>", ":m '<-2<CR>gv=gv", opts)
+--keymap("v", "<Shift-<>", ":m '<-2<CR>gv=gv", opts)

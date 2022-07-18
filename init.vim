@@ -25,7 +25,7 @@ set signcolumn=yes
 set hidden
 " wildmenu offers cmd completion on the bottom but requires more
 " mentaloverhead than i like atm
-"set wildmode=longest,list,full
+set wildmode=longest,list,full
 "set wildmenu
 syntax enable
 syntax on
@@ -46,13 +46,11 @@ Plug 'nvim-telescope/telescope-ui-select.nvim'
 " VIM enhancements
 Plug 'ciaranm/securemodelines'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'vim-syntastic/syntastic'
 Plug 'preservim/nerdcommenter'
 
-" GUI enhancements
+" N Mode enhancements
 Plug 'machakann/vim-highlightedyank'
 Plug 'andymass/vim-matchup'
-Plug 'airblade/vim-rooter'
 
 " Treesitter support 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -61,15 +59,31 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/lsp_extensions.nvim'
-Plug 'hrsh7th/cmp-nvim-lsp', {'branch': 'main'}
+Plug 'ray-x/lsp_signature.nvim'
+
+" Lint
+Plug 'tamago324/nlsp-settings.nvim' " language server settings defined in json for
+Plug 'jose-elias-alvarez/null-ls.nvim' "for formatters and linters
+Plug 'simrat39/symbols-outline.nvim'
+
+" the hrsh7th !!
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
 Plug 'hrsh7th/cmp-buffer', {'branch': 'main'}
 Plug 'hrsh7th/cmp-path', {'branch': 'main'}
 Plug 'hrsh7th/nvim-cmp', {'branch': 'main'}
-Plug 'ray-x/lsp_signature.nvim'
-Plug 'tamago324/nlsp-settings.nvim' " language server settings defined in json for
-Plug 'jose-elias-alvarez/null-ls.nvim' "for formatters and linters
-"" Plug 'filipdutescu/renamer.nvim'
-Plug 'simrat39/symbols-outline.nvim'
+Plug 'hrsh7th/cmp-nvim-lsp', {'branch': 'main'}
+
+" Code UI optimisations
+Plug 'j-hui/fidget.nvim'
+Plug 'folke/trouble.nvim'
+Plug 'hrsh7th/cmp-vsnip', {'branch': 'main'}
+Plug 'hrsh7th/vim-vsnip'
+Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
 
 " Debugger
 Plug 'mfussenegger/nvim-dap'
@@ -78,19 +92,11 @@ Plug 'nvim-telescope/telescope-dap.nvim'
 Plug 'rcarriga/nvim-dap-ui'
 Plug 'theHamsta/nvim-dap-virtual-text'
 
-" Only because nvim-cmp _requires_ snippets
-Plug 'hrsh7th/cmp-vsnip', {'branch': 'main'}
-Plug 'hrsh7th/vim-vsnip'
-
 " Movement enhancements
 Plug 'phaazon/hop.nvim'
-Plug 'justinmk/vim-sneak'
 
 " Line 
 Plug 'nvim-lualine/lualine.nvim'
-" Plug 'itchyny/lightline.vim'
-" perhaps a new statusline: https://github.com/glepnir/galaxyline.nvim
-" Plug 'glepnir/galaxyline.nvim' , { 'branch': 'main' }
 
 " Terminal 
 Plug 'akinsho/toggleterm.nvim', {'tag':  'v1.*'}
@@ -100,6 +106,8 @@ Plug 'fatih/vim-go'
 
 " rust
 Plug 'simrat39/rust-tools.nvim'
+"Plug 'rust-lang/rust.vim'
+Plug 'Saecki/crates.nvim'
 
 " editor enhancements surround setup for closing [{("' and more: https://github.com/tpope/vim-surround
 Plug 'tpope/vim-surround'
@@ -112,7 +120,7 @@ Plug 'tpope/vim-unimpaired'
 " Colorschemes
 Plug 'gruvbox-community/gruvbox'
 Plug 'rebelot/kanagawa.nvim'
-Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+"Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
 " Unsure 
 " vim-caser grants bindings that allow changing the casing of words. May be
@@ -120,10 +128,10 @@ Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 " can be done with a macro.
 " Plug 'arthurxavierx/vim-caser'
 " tabularize: http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
-Plug 'godlygeek/tabular'
+"Plug 'godlygeek/tabular'
 
-" If you want to display icons, then use one of these plugins:
- Plug 'kyazdani42/nvim-web-devicons' " lua
+" If you want to display icons
+ Plug 'kyazdani42/nvim-web-devicons' 
 
 " Set root of folder when opening new file 
 Plug 'airblade/vim-rooter'
@@ -136,11 +144,7 @@ Plug 'Raimondi/delimitMate'
 " Plug 'xiyaowong/nvim-transparent'
 call plug#end()
 
-" KEEP IT SNEKKY SNEAKY
-" Sneak
-"map f <Plug>Sneak_s
-"map F <Plug>Sneak_S
-
+autocmd CursorHold * lua vim.diagnostic.open_float(nil, {focusable = false})
 lua require('cfgx.hop')
 lua require('cfgx.treesitter')
 lua require('cfgx.cmp')
@@ -151,3 +155,6 @@ lua require("cfgx.dab")
 lua require('cfgx.telescope')
 lua require('cfgx.toggleterm')
 lua require('cfgx.lualine')
+lua require('cfgx.lspsaga')
+lua require('cfgx.trouble')
+lua require('cfgx.fidget')
