@@ -130,6 +130,9 @@ Plug 'rebelot/kanagawa.nvim'
 " tabularize: http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
 "Plug 'godlygeek/tabular'
 
+" Tree
+Plug 'kyazdani42/nvim-tree.lua'
+
 " If you want to display icons
  Plug 'kyazdani42/nvim-web-devicons' 
 
@@ -159,3 +162,4 @@ lua require('cfgx.lspsaga')
 lua require('cfgx.trouble')
 lua require('cfgx.fidget')
 lua require("cfgx.lsp.null-ls")
+lua require("cfgx.nvimtree")

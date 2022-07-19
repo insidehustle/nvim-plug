@@ -44,8 +44,8 @@ keymap('v', '<leader>P', '"+P', opts)
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
-
-keymap("n", "<C-n>", ":Explore<CR>", opts)
+ -- NvimTree
+keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
 -- should be J, K respectively but whatefs
 keymap("v", "<A-UP>", ":m '>+1<CR>gv=gv", opts)
