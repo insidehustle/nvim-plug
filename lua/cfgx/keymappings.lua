@@ -40,16 +40,24 @@ keymap('n', '<leader>P', '"+P', opts)
 keymap('v', '<leader>p', '"+p', opts)
 keymap('v', '<leader>P', '"+P', opts)
 
+-- Navigation
+-- Better window navigation
+keymap("n", "<C-h>", "<C-w>h", opts)
+keymap("n", "<C-j>", "<C-w>j", opts)
+keymap("n", "<C-k>", "<C-w>k", opts)
+keymap("n", "<C-l>", "<C-w>l", opts)
+
+-- Resize with arrows
+keymap("n", "<C-Up>", ":resize -2<CR>", opts)
+keymap("n", "<C-Down>", ":resize +2<CR>", opts)
+keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
+keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
  -- NvimTree
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
-
--- should be J, K respectively but whatefs
-keymap("v", "<A-UP>", ":m '>+1<CR>gv=gv", opts)
-keymap("v", "<A-DOWN>", ":m '<-2<CR>gv=gv", opts)
 
 -- this is smart:
 keymap("i", "<C-c>", "<ESC>", opts)
@@ -68,16 +76,13 @@ keymap("v", "K", ":m '<-2<CR>gv=gv", opts)
 --keymap("v", "<Shift->>", ":m '<-2<CR>gv=gv", opts)
 --keymap("v", "<Shift-<>", ":m '<-2<CR>gv=gv", opts)
 
--- Resize with arrows
-keymap("n", "<C-Up>", ":resize -2<CR>", opts)
-keymap("n", "<C-Down>", ":resize +2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
-
 -- Visual --
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
+-- should be J, K respectively but whatefs
+keymap("v", "<C-k>", ":m '>+1<CR>gv=gv", opts)
+keymap("v", "<C-j>", ":m '<-2<CR>gv=gv", opts)
 
 -- DAP
 keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
