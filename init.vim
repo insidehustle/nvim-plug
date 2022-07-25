@@ -43,7 +43,7 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'nvim-telescope/telescope-ui-select.nvim'
 Plug 'nvim-telescope/telescope-file-browser.nvim'
-Plug 'ahmedkhalf/project.nvim'
+Plug 'nvim-telescope/telescope-project.nvim'
 
 " VIM enhancements
 Plug 'ciaranm/securemodelines'
