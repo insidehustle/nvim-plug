@@ -42,6 +42,8 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'nvim-telescope/telescope-ui-select.nvim'
+Plug 'nvim-telescope/telescope-file-browser.nvim'
+Plug 'ahmedkhalf/project.nvim'
 
 " VIM enhancements
 Plug 'ciaranm/securemodelines'
@@ -159,7 +161,7 @@ lua require('cfgx.telescope')
 lua require('cfgx.toggleterm')
 lua require('cfgx.lualine')
 lua require('cfgx.lspsaga')
-lua require('cfgx.trouble')
+"lua require('cfgx.trouble')
 lua require('cfgx.fidget')
 lua require("cfgx.lsp.null-ls")
 lua require("cfgx.nvimtree")

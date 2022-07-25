@@ -1,3 +1,8 @@
+--local status_nvim, project_nvim = pcall(require, "project_nvim")
+--if not status_nvim then
+    --return
+--end
+--project_nvim.setup{}
 local status_ok, telescope = pcall(require, "telescope")
 if not status_ok then
   return
@@ -15,6 +20,8 @@ telescope.setup {
 -- To get ui-select loaded and working with telescope, you need to call
 -- load_extension, somewhere after setup function:
 require("telescope").load_extension("ui-select")
+--require("telescope").load_extension("file_browser")
+--require("telescope").load_extension("project")
 --Remap space as leader key
 local opts = {noremap = true}
 local keymap = vim.api.nvim_set_keymap
@@ -42,3 +49,7 @@ keymap("n", "<leader>fg", "<cmd>Telescope git_branches<CR>",opts)
 keymap("n", "<leader>fh", "<cmd>Telescope help_tags<CR>",opts)
 -- find keymaps that can be used
 keymap("n", "<leader>fk", "<cmd>Telescope keymaps<CR>",opts)
+-- file file_browser
+--keymap("n", "<leader>fp", ":Telescope file_browser", opts)
+-- Telescope project
+--keymap("n", "<leader>fpr", ":lua require'telescope'.extensions.project.project{}<CR>",opts)

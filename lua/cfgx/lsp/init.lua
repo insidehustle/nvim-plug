@@ -118,11 +118,11 @@ lspconfig.sumneko_lua.setup {
   },
 }
 
-lspconfig.golangci_lint_ls.setup{
-    capabilities = capabilities,
-    on_attach = on_attach,
-    flags = lsp_flags,
-}
+--lspconfig.golangci_lint_ls.setup{
+    --capabilities = capabilities,
+    --on_attach = on_attach,
+    --flags = lsp_flags,
+--}
 
 lspconfig.gopls.setup{
 	cmd = {'gopls'},
